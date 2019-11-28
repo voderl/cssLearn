@@ -1,2 +1,2 @@
 # cssLearn
-[在线网址](https:://www.voderl.cn "Markdown")。
+[在线网址](https://voderl.cn/web "Markdown")。
