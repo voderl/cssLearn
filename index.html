@@ -6,17 +6,56 @@
   <link type='text/css' href='styles.css' rel='stylesheet'>
 </head>
 <body>
-  <p>CSS揭秘此书学习中一些例子的实现</p>
-<div id="back"></div>
-<div id="dot"></div>
-<div id="chess"></div>
-<div id="ants"></div>
-<div id="splitLine">xswl</div>
-<div id="innerRoundBorder"></div>
-<div id="rotateDiv"><img id="rotateImg" src="images/bilibili.svg"></div>
-<img id="rotateImg2" src="images/bilibili.svg">
-<div id="next"></div>
-<div id="tab">color</div>
+<div class="main">
+    <p class="chapter">介绍</p>
+    <p class="word">《CSS揭秘》中一些例子的实现，具体如何实现请看控制台或者源代码。
+      <a href="https://github.com/voderl/cssLearn" target="_blink">github地址点击前往</a>
+    </p>
+  <p class="chapter">第一章：引言</p>
+  <p class="chapter">第二章：背景与边框</p>
+  <p class="section">1.半透明边框</p>
+  <div class="background">
+    <div class="transBorder">
+      <p class="word">这里是一些随便的文字</p>
+    </div>
+  </div>
+  <p class="section">2.多重边框</p>
+  <p class="section2">box-shadow</p>
+  <div class="box-shadow-border"></div>
+  <p class="section2">outLine</p>
+  <div class="outLine-border"></div>
+  <p class="section">3.背景定位</p>
+  <div class="background-loc"></div>
+  <p class="section">4.边框内圆角</p>
+  <div class="innerRoundBorder">
+    <p class="word">这里是一些随便的文字</p>
+  </div>
+  <p class="section">5.条纹背景</p>
+  <div class="stripe-0"></div>
+  <div class="stripe-90"></div>
+  <div class="stripe-30"></div>
+  <p class="section">6.复杂的图案</p>
+  <div class="lattice-example"></div>
+  <div class="dot"></div>
+  <div class="chess"></div>
+<div class="back"></div>
+<p class="section">7.伪随机背景</p>
+<div class="randomBack"></div>
+<p class="section">8.连续的图形边框</p>
+<div class="imageBorder"></div>
+<div class="letter-border"></div>
+<div class="ants"></div>
+<p class="footer">This is a footnote.</p>
+<p class="chapter">第三章：形状</p>
+<p class="footer">后续等待更新中...此时2019年11月28日21:02:19</p>
+<p></p>
+<p></p>
+<p></p>
+<div class="splitLine">xswl</div>
+<div class="rotateDiv"><img class="rotateImg" src="images/bilibili.svg"></div>
+<img class="rotateImg2" src="images/bilibili.svg">
+<div class="next"></div>
+<div class="tab">color</div>
 <p>keyframes step次数是frames每次的变换，如果是50%变一次 step(1,end)那就0跳到50变一次再从50到100再变一次</p>
 <div class="pie"></div>
 <div class="circle"></div>
@@ -49,5 +88,6 @@
 <footer></footer>
 <p>鼠标放置自动移动</p>
 <div class="moveImg"></div>
+</div>
 </body>
 </html>

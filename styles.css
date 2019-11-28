@@ -6,74 +6,95 @@
   src: url(fonts/SourceCodeVariable-Roman.ttf);
 }
 body {
-  font-family: 'Source Code Variable', monospace;
+  font-family: 'Source Code Variable', '微软雅黑', monospace;
   margin: 0;
+  background: rgba(216, 191, 216, 0.2);
+}
+.main {
+  position: relative;
+  left: 20%;
+  width: 60%;
+}
+a:hover {
+  color: tomato;
 }
 div {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 100px;
   display: inline-block;
 }
-#back {
-  background-image: repeating-linear-gradient(60deg, hsla(0, 0%, 100%, 0.6), hsla(0, 0%, 100%, 0.6) 15px, transparent 0, transparent 30px), repeating-linear-gradient(-30deg, hsla(0, 0%, 100%, 0.6), hsla(0, 0%, 100%, 0.6) 15px, transparent 0, transparent 30px);
-  background-color: thistle;
-  border: 1em solid transparent;
-  background-size: cover;
-  background-clip: content-box, border-box;
-  background-origin: content-box, border-box;
-  animation: move 1s linear infinite alternate;
+.no-margin {
+  margin: 0 0;
 }
-@keyframes move {
-  to {
-    background-color: tomato;
-  }
+.chapter {
+  border-style: none none dotted none;
+  border-width: 2px;
+  font-size: 20px;
+  border-color: thistle;
 }
-#dot {
-  background-image: radial-gradient(tan 10px, transparent 0);
-  background-size: 30px 30px;
+.section {
+  text-indent: 2em;
+  font-size: 17px;
 }
-#chess {
-  background-image: url(images/patterns.svg);
-  background-size: 50px 50px;
+.section::before {
+  content: '#';
+  color: #5e3a5e;
 }
-#ants {
-  border: 1px solid transparent;
-  padding: 1em;
-  background: linear-gradient(white, white) padding-box, repeating-linear-gradient(-45deg, black 0, black 25%, white 0, white 50%) 0 / 0.6em 0.6em;
-  animation: ants 12s linear infinite;
+.section::after {
+  content: ':';
+  color: #5e3a5e;
 }
-@keyframes ants {
-  to {
-    background-position: 100%;
-  }
+.section2 {
+  text-indent: 4em;
 }
-#splitLine {
+.section2::before {
+  content: '•';
+  color: thistle;
+}
+.word {
+  text-indent: 1em;
+}
+.background {
   position: relative;
-  height: 5em;
-  display: block;
+  width: 300px;
+  height: 150px;
+  background: url(images/stars.jpg) 0px 150px;
 }
-#splitLine::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  transform: skew(-60deg);
-  background-color: thistle;
-  z-index: -1;
-}
-#innerRoundBorder {
-  position: relative;
-  width: 500px;
+.transBorder {
+  width: 200px;
   height: 100px;
-  border-radius: 5% / 20%;
+  margin: 15px 40px;
+  border: 10px solid rgba(255, 255, 255, 0.4);
+  background: white;
+  background-clip: padding-box;
+}
+.box-shadow-border {
+  background: thistle;
+  margin: 20px;
+  box-shadow: 0 0 0 10px #b180b1, 0 0 0 15px #7e4d7e, 0 0 0 20px #3f263f;
+}
+.outLine-border {
+  background: thistle;
+  margin: 5px;
+  border: 10px solid #5e3a5e;
+  outline: 5px solid #000000;
+}
+.background-loc {
+  background-color: thistle;
+  background: url(images/bilibili.svg) no-repeat, url(images/bilibili.svg) no-repeat, url(images/bilibili.svg) no-repeat;
+  background-position: top 10px left 10px,
+    bottom 10px right 10px,
+    top 50% left 50%;
+}
+.innerRoundBorder {
+  position: relative;
+  border-radius: 5% / 10%;
   padding: 10px;
   margin: 10px;
   background-color: white;
   background-origin: content-box;
 }
-#innerRoundBorder::before {
+.innerRoundBorder::before {
   content: '';
   position: absolute;
   top: 0;
@@ -86,39 +107,118 @@ div {
   z-index: -1;
   filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
 }
-#rotateDiv {
+.stripe-0 {
+  background: repeating-linear-gradient(0deg, thistle, thistle 10px, #b180b1 0, #b180b1 20px);
+}
+.stripe-30 {
+  background: repeating-linear-gradient(30deg, thistle, thistle 10px, #b180b1 0, #b180b1 20px);
+}
+.stripe-90 {
+  background: repeating-linear-gradient(90deg, thistle, thistle 10px, #c59fc5 0, #c59fc5 30px);
+}
+.lattice-example {
+  background: thistle;
+  background-image: repeating-linear-gradient(to bottom, white, white 1px, transparent 0, transparent 16px), repeating-linear-gradient(to right, white, white 1px, transparent 0, transparent 16px);
+}
+.dot {
+  background-image: radial-gradient(thistle 30%, transparent 0), radial-gradient(thistle 30%, transparent 0);
+  background-size: 30px 30px;
+  background-position: 0 0 ,15px 15px;
+}
+.chess {
+  background-image: url(images/patterns.svg);
+  background-size: 50px 50px;
+}
+.back {
+  height: 80px;
+  width: 180px;
+  background-image: repeating-linear-gradient(60deg, hsla(0, 0%, 100%, 0.6), hsla(0, 0%, 100%, 0.6) 15px, transparent 0, transparent 30px), repeating-linear-gradient(-30deg, hsla(0, 0%, 100%, 0.6), hsla(0, 0%, 100%, 0.6) 15px, transparent 0, transparent 30px);
+  background-color: thistle;
+  border: 10px solid transparent;
+  background-size: cover;
+  background-clip: content-box, border-box;
+  background-origin: content-box, border-box;
+}
+.randomBack {
+  background: thistle;
+  background-image: linear-gradient(90deg, thistle 11px, transparent 0), linear-gradient(90deg, #9e609e 23px, transparent 0), linear-gradient(90deg, #5e3a5e 41px, transparent 0);
+  background-size: 41px 100%,61px 100%,83px 100%;
+}
+.imageBorder {
+  border: 1em solid transparent;
+  background: linear-gradient(white, white) padding-box, url(images/stars.jpg) border-box 0 0 / cover;
+}
+.imageBorder p {
+  margin: 0 auto;
+}
+.letter-border {
+  border: 1em solid transparent;
+  background: linear-gradient(white, white) padding-box, repeating-linear-gradient(135deg, red 0, red 0.70710678em, transparent 0, transparent 1.41421356em, #58a 0, #58a 2.12132034em, transparent 0, transparent 2.82842712em) border-box;
+}
+.ants {
+  border: 1px solid transparent;
+  background: linear-gradient(white, white) padding-box, repeating-linear-gradient(-45deg, black 0, black 25%, white 0, white 50%) 0 / 0.6em 0.6em;
+  animation: ants 12s linear infinite;
+}
+@keyframes ants {
+  to {
+    background-position: 100%;
+  }
+}
+.footer {
+  border-top: 0.2em solid transparent;
+  border-image: 100% 0 0 linear-gradient(90deg, thistle 4em, transparent 0);
+  padding-top: 0.5em;
+}
+.splitLine {
+  position: relative;
+  height: 5em;
+  display: block;
+}
+.splitLine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  transform: skew(-60deg);
+  background-color: thistle;
+  z-index: -1;
+}
+.rotateDiv {
   width: 32px;
   height: 32px;
   transform: rotate(45deg);
   overflow: hidden;
 }
-#rotateImg {
+.rotateImg {
   transform: rotate(-45deg);
   max-width: 100%;
 }
-#rotateImg2 {
+.rotateImg2 {
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
   transition: 1s clip-path;
 }
-#rotateImg2:hover {
+.rotateImg2:hover {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
-#next {
+.next {
   width: 150px;
   height: 50px;
-  background: tomato;
-  background: linear-gradient(225deg, transparent 17.68033946px, tomato 0) top, linear-gradient(-45deg, transparent 17.68033946px, tomato 0) bottom;
+  background: thistle;
+  background: linear-gradient(225deg, transparent 17.68033946px, thistle 0) top, linear-gradient(-45deg, transparent 17.68033946px, thistle 0) bottom;
   background-size: 150px 25px;
   background-repeat: no-repeat;
 }
-#tab {
+.tab {
   width: 3em;
   height: 1.5em;
   position: relative;
   padding: 0.3em 1em 0em;
   color: white;
 }
-#tab::before {
+.tab::before {
   content: '';
   position: absolute;
   top: 0;
