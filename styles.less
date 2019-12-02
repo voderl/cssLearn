@@ -198,17 +198,26 @@ div {
         @color 4em,transparent 0);
     padding-top: .5em;
 }
-.splitLine {
+.ellipse {
+    width: 200px;
+    height: 100px;
+    background-color: @color;
+    border-radius: 50% @slash 50%;
+}
+.half-ellipse{
+    width: 50px;
+    background-color: @color;
+    border-radius: 50% @slash 100% 100% 0 0;
+}
+.parallelogram{
     position: relative;
-    height: 5em;
-    display: block;
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;right: 0;left: 0;bottom: 0;
-        transform: skew(-60deg);
-        background-color: thistle;
-        z-index: -1;
+    color: white;
+    padding: 50px 0 0 0;
+    font-size: 25px;
+    &::before{
+        .before(-1);
+        background-color: @color;
+        transform: skew(-45deg);
     }
 }
 
@@ -229,19 +238,33 @@ div {
         clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
     }
 }
-
+.inner(@top,@left) {
+    font-size: inherit;
+    margin: 0;
+    position: absolute;
+    top:@top;left: @left;
+    transform: translate(-50%,-50%);
+}
 .next {
     @height:50px;
-    width: 3*@height;
+    @width:2 * @height;
+    @angle:45deg;
+    position: relative;
+    font-size: @height * 0.4;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: @width;
     height: @height;
     background: @color;
-    background: linear-gradient(45deg + 180,transparent @height/2/1.414,@color 0) top,
-    linear-gradient(-45deg,transparent @height/2/1.414,@color 0) bottom;
-    background-size: 3*@height @height/2;
+    clip-path: polygon(0 0,@width - @height / 2 / tan(@angle) 0,@width @height/2,@width - @height / 2 / tan(@angle) @height,0 @height);
+    background-size: @width @height;
     background-repeat: no-repeat;
+    p {
+        .inner(30%,50%);
+    }
 }
 .tab {
-    @width: 3em;
+    @width: 6em;
     width: @width;
     height: @width/2;
     position: relative;
@@ -257,6 +280,22 @@ div {
         border-radius: .5em .5em 0 0;
         box-shadow: 0 0.15em white inset;
         transform-origin: bottom;
+    }
+    p{
+        .inner(70%,45%);
+    }
+}
+.splitLine {
+    position: relative;
+    height: 5em;
+    display: block;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;right: 0;left: 0;bottom: 0;
+        transform: skew(-60deg);
+        background-color: thistle;
+        z-index: -1;
     }
 }
 .pie {
@@ -293,8 +332,22 @@ div {
     });
 }
 .bottomShadow {
-    box-shadow: 0 10px 5px -5px grey,
-    0 -10px 5px -5px grey;
+    background-color: @color;
+    box-shadow: 0 10px 5px -5px grey;
+}
+.bottomShadow2 {
+    background-color: @color;
+    box-shadow: 10px 0px 5px -5px grey,
+    -10px 0px 5px -5px grey;
+}
+.nextShadow {
+    .theNext {
+        .next;
+    }
+    .dottedBorder {
+        border: 10px dotted thistle;
+    }
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.6));
 }
 .img {
     @attach:scroll;
