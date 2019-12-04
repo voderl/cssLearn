@@ -8,7 +8,7 @@
 body {
   font-family: 'Source Code Variable', '微软雅黑', monospace;
   margin: 0;
-  background: rgba(216, 191, 216, 0.2);
+  background: rgba(216, 191, 216, 0.1);
 }
 .main {
   position: relative;
@@ -231,8 +231,8 @@ div {
   font-size: inherit;
   margin: 0;
   position: absolute;
-  top: 30%;
-  left: 50%;
+  top: 50%;
+  left: 30%;
   transform: translate(-50%, -50%);
 }
 .tab {
@@ -266,6 +266,45 @@ div {
   left: 45%;
   transform: translate(-50%, -50%);
 }
+img {
+  width: 100px;
+  padding: 1% 1%;
+  transition: 0.5s filter;
+}
+.image {
+  width: 100%;
+  height: auto;
+  display: inline-block;
+}
+.image img {
+  width: 100px;
+  padding: 1% 1%;
+  transition: 0.5s filter;
+}
+.image #img1 {
+  filter: sepia(1);
+}
+.image #img1:hover {
+  filter: none;
+}
+.image #img2 {
+  filter: saturate(4);
+}
+.image #img2:hover {
+  filter: none;
+}
+.image #img3 {
+  filter: hue-rotate(180deg);
+}
+.image #img3:hover {
+  filter: none;
+}
+.image #img4 {
+  filter: sepia(1) saturate(4) hue-rotate(180deg);
+}
+.image #img4:hover {
+  filter: none;
+}
 .splitLine {
   position: relative;
   height: 5em;
@@ -278,7 +317,6 @@ div {
   right: 0;
   left: 0;
   bottom: 0;
-  transform: skew(-60deg);
   background-color: thistle;
   z-index: -1;
 }
@@ -366,8 +404,8 @@ div {
   font-size: inherit;
   margin: 0;
   position: absolute;
-  top: 30%;
-  left: 50%;
+  top: 50%;
+  left: 30%;
   transform: translate(-50%, -50%);
 }
 .nextShadow .dottedBorder {
@@ -381,12 +419,13 @@ div {
 }
 .img .text {
   position: absolute;
-  left: 60px;
+  left: 30px;
   top: 60px;
+  width: 240px;
+  height: auto;
   z-index: 1;
   border-radius: 30px / 30px;
   overflow: hidden;
-  padding: 10px 10px;
 }
 .img .text::before {
   content: '';
@@ -397,13 +436,18 @@ div {
   bottom: 0;
   z-index: -1;
   filter: blur(5px);
-  background: url(images/bg.jpg) left -60px top -60px / 300px 300px scroll;
+  background: url(images/bg.jpg) left -30px top -60px / 300px 300px scroll;
+}
+.img p {
+  padding: 10px 5px;
 }
 p {
   text-indent: 1em;
   hyphens: auto;
 }
 .angle {
+  width: 150px;
+  height: 150px;
   position: relative;
   background: thistle;
   background: linear-gradient(200deg, transparent 20px, thistle 0);
@@ -421,84 +465,71 @@ p {
   border-bottom-left-radius: inherit;
   box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.4);
 }
+.angle2 {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  background: thistle;
+  background: linear-gradient(225deg, transparent 20px, thistle 0);
+}
+.angle2::before {
+  content: '';
+  position: absolute;
+  width: 28.28427125px;
+  height: 28.28427125px;
+  right: 0px;
+  top: 0;
+  background: linear-gradient(to bottom left, transparent 50%, #bb8fbb 0);
+  transform-origin: top left;
+  transform: rotate(0deg);
+  border-bottom-left-radius: inherit;
+  box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.4);
+}
+.angle3 {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  background: thistle;
+  background: linear-gradient(240deg, transparent 10px, thistle 0);
+}
+.angle3::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 11.54700538px;
+  right: -8.45299462px;
+  top: 0;
+  background: linear-gradient(to bottom left, transparent 50%, #bb8fbb 0);
+  transform-origin: top left;
+  transform: rotate(30deg);
+  border-bottom-left-radius: inherit;
+  box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.4);
+}
 .lineColor {
   width: 200px;
+  height: auto;
   font-size: 20px;
   line-height: 1.5;
   background: white;
   background-image: linear-gradient(to bottom, #cccccc 50%, transparent 0);
   background-size: auto 3em;
 }
+.lineColor span {
+  line-height: inherit;
+  word-break: normal;
+  word-wrap: break-word;
+}
 .underLine {
-  text-decoration: underline thistle wavy;
+  text-decoration: underline red wavy;
 }
-.text1 {
-  width: 50px;
-  height: 50px;
-  background: thistle;
-  color: tomato;
-  transition: 1s;
+.fontShadow {
+  font-size: 30px;
+  text-shadow: 0 1px 1px thistle;
 }
-.text1:hover {
-  filter: blur(0.1em);
-}
-footer {
-  height: 100px;
-  padding: 0em;
-  padding: 0em calc(50% - 400px);
-  background: thistle;
-}
-.zone {
-  width: 300px;
-  height: 550px;
-  background-color: white;
-}
-.ball {
-  border-radius: 50%;
-  background-color: thistle;
-  animation: bounce 3s cubic-bezier(0.1, 0.25, 1, 0.25) forwards;
-}
-@-webkit-keyframes bounce {
-  60%,
-  80%,
-  to {
-    transform: translateY(400px);
-    animation-timing-function: ease;
-  }
-  70% {
-    transform: translateY(300px);
-  }
-  90% {
-    transform: translateY(360px);
-  }
-}
-@-moz-keyframes bounce {
-  60%,
-  80%,
-  to {
-    transform: translateY(400px);
-    animation-timing-function: ease;
-  }
-  70% {
-    transform: translateY(300px);
-  }
-  90% {
-    transform: translateY(360px);
-  }
-}
-@keyframes bounce {
-  60%,
-  80%,
-  to {
-    transform: translateY(400px);
-    animation-timing-function: ease;
-  }
-  70% {
-    transform: translateY(300px);
-  }
-  90% {
-    transform: translateY(360px);
-  }
+.fontStroke {
+  color: white;
+  font-size: 30px;
+  text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
 }
 .moveImg {
   width: 150px;
@@ -515,4 +546,10 @@ footer {
 }
 .moveImg:hover {
   animation-play-state: running;
+}
+footer {
+  height: 100px;
+  padding: 0em;
+  padding: 0em calc(50% - 400px);
+  background: thistle;
 }

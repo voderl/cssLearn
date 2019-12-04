@@ -8,7 +8,7 @@
 body {
     font-family: 'Source Code Variable','微软雅黑',monospace;
     margin: 0;
-    background: fadeout(@color,80);
+    background: fadeout(@color,90);
 }
 .main {
     position: relative;
@@ -260,7 +260,7 @@ div {
     background-size: @width @height;
     background-repeat: no-repeat;
     p {
-        .inner(30%,50%);
+        .inner(50%,30%);
     }
 }
 .tab {
@@ -285,6 +285,45 @@ div {
         .inner(70%,45%);
     }
 }
+img {
+    width: 100px;
+    padding: 1% 1%;
+    transition: .5s filter;
+}
+.image {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    img {
+        width: 100px;
+        padding: 1% 1%;
+        transition: .5s filter;
+    }
+    #img1 {
+        filter:sepia(1);
+        &:hover{
+            filter: none;
+        }
+    }
+    #img2 {
+        filter: saturate(4);
+        &:hover{
+            filter: none;
+        }
+    }
+    #img3 {
+        filter: hue-rotate(180deg);
+        &:hover{
+            filter: none;
+        }
+    }
+    #img4 {
+        filter: sepia(1) saturate(4) hue-rotate(180deg);
+        &:hover{
+            filter: none;
+        }
+    }
+}
 .splitLine {
     position: relative;
     height: 5em;
@@ -293,7 +332,6 @@ div {
         content: '';
         position: absolute;
         top: 0;right: 0;left: 0;bottom: 0;
-        transform: skew(-60deg);
         background-color: thistle;
         z-index: -1;
     }
@@ -353,7 +391,7 @@ div {
     @attach:scroll;
     @width:300px;
     @height: 300px;
-    @left:20%;
+    @left:10%;
     @top:20%;
     width: @width;
     height: @height;
@@ -363,15 +401,19 @@ div {
         position: absolute;
         left: @width*@left/100;
         top: @height*@top/100;
+        width: @width*(100-2*@left)/100;
+        height: auto;
         z-index: 1;
         border-radius: @width/10 @slash @height/10;
         overflow: hidden;
-        padding: 10px 10px;
         &::before{
             .before(-1);
-            filter: blur(@width/60);
+            filter: blur(@width / 60);
             background: url(images/bg.jpg) left -@width*@left/100 top -@height*@top/100 @slash @width @height @attach;
         }
+    }
+    p {
+        padding: 10px 5px;
     }
 }
 p{
@@ -401,54 +443,54 @@ p{
 .angle {
     @width:150px;
     @height:150px;
+    width: @width;
+    height: @height;
     .foldCorner(20deg,20px,thistle);
+}
+.angle2 {
+    @width:150px;
+    @height:150px;
+    width: @width;
+    height: @height;
+    .foldCorner(45deg,20px,thistle);
+}
+.angle3 {
+    @width:150px;
+    @height:150px;
+    width: @width;
+    height: @height;
+    .foldCorner(60deg,10px,thistle);
 }
 .lineColor {
     @color:white;
     @line-height:1.5;
     width: 200px;
+    height: auto;
     font-size: 20px;
     line-height: @line-height;
     background: @color;
     background-image: linear-gradient(to bottom,darken(@color,20%) 50%,transparent 0);
     background-size: auto unit(2*@line-height,em);
-}
-.underLine {
-    text-decoration:underline thistle wavy;
-}
-.text1 {
-    width: 50px;
-    height: 50px;
-    background: thistle;
-    color: tomato;
-    transition: 1s;
-    &:hover {
-        filter: blur(.1em);
+    span {
+        line-height: inherit;
+        word-break: normal;
+        word-wrap: break-word;
     }
 }
-footer {
-    height: 100px;
-    padding: 0em;
-    padding:  0em calc(50% - 400px);
-    background: thistle;
+.underLine {
+    text-decoration:underline red wavy;
 }
-.zone {
-    width: 300px;
-    height: 550px;
-    background-color: white;
+.fontShadow {
+    font-size: 30px;
+    text-shadow: 0 1px 1px thistle;
 }
-.ball {
-    border-radius: 50%;
-    background-color: thistle;
-    animation: bounce 3s cubic-bezier(.1,.25,1,.25) forwards;
-    .keyframes(bounce,{
-        60%, 80%, to {
-            transform: translateY(400px);
-            animation-timing-function: ease;
-        }
-        70% { transform: translateY(300px); }
-        90% { transform: translateY(360px); }
-    });
+.fontStroke {
+    @line:1px;
+    @color:black;
+    color: white;
+    font-size: 30px;
+    text-shadow: @line @line @color,-@line -@line @color,
+    @line -@line @color,-@line @line @color;
 }
 .moveImg {
     width: 150px;
@@ -463,4 +505,10 @@ footer {
     &:hover{
         animation-play-state: running;
     }
+}
+footer {
+    height: 100px;
+    padding: 0em;
+    padding:  0em calc(50% - 400px);
+    background: thistle;
 }
