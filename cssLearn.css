@@ -1,21 +1,15 @@
 .shadow {
   filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
 }
-@font-face {
-  font-family: 'Source Code Variable';
-  src: url(fonts/SourceCodeVariable-Roman.ttf);
-}
 body {
-  font-family: 'Source Code Variable', '微软雅黑', monospace;
-  margin: 0;
-  background: rgba(216, 191, 216, 0.1);
+  background: rgba(255, 99, 71, 0.1);
 }
 .main {
+  z-index: 0;
   position: relative;
-  left: 20%;
-  width: 60%;
+  width: 100%;
 }
-a:hover {
+.main a:hover {
   color: tomato;
 }
 .main div {
@@ -23,44 +17,44 @@ a:hover {
   height: 100px;
   display: inline-block;
 }
-.no-margin {
+.main .no-margin {
   margin: 0 0;
 }
-.chapter {
+.main .chapter {
   border-style: none none dotted none;
   border-width: 2px;
   font-size: 20px;
   border-color: thistle;
 }
-.section {
+.main .section {
   text-indent: 2em;
   font-size: 17px;
 }
-.section::before {
+.main .section::before {
   content: '#';
   color: #5e3a5e;
 }
-.section::after {
+.main .section::after {
   content: ':';
   color: #5e3a5e;
 }
-.section2 {
+.main .section2 {
   text-indent: 4em;
 }
-.section2::before {
+.main .section2::before {
   content: '•';
   color: thistle;
 }
-.word {
+.main .word {
   text-indent: 1em;
 }
-.background {
+.main .background {
   position: relative;
   width: 300px;
   height: 150px;
-  background: url(images/stars.jpg) 0px 150px;
+  background: url(https://img2018.cnblogs.com/common/1877019/201912/1877019-20191213213606545-25399406.jpg) 0px 150px;
 }
-.transBorder {
+.main .transBorder {
   width: 200px;
   height: 100px;
   margin: 15px 40px;
@@ -68,25 +62,25 @@ a:hover {
   background: white;
   background-clip: padding-box;
 }
-.box-shadow-border {
+.main .box-shadow-border {
   background: thistle;
   margin: 20px;
   box-shadow: 0 0 0 10px #b180b1, 0 0 0 15px #7e4d7e, 0 0 0 20px #3f263f;
 }
-.outLine-border {
+.main .outLine-border {
   background: thistle;
   margin: 5px;
   border: 10px solid #5e3a5e;
   outline: 5px solid #000000;
 }
-.background-loc {
+.main .background-loc {
   background-color: thistle;
-  background: url(images/bilibili.svg) no-repeat, url(images/bilibili.svg) no-repeat, url(images/bilibili.svg) no-repeat;
+  background: url(https://www.easyicon.net/download/svg/1188649/453/) no-repeat, url(https://www.easyicon.net/download/svg/1188649/453/) no-repeat, url(https://www.easyicon.net/download/svg/1188649/453/) no-repeat;
   background-position: top 10px left 10px,
-    bottom 10px right 10px,
-    top 50% left 50%;
+        bottom 10px right 10px,
+        top 50% left 50%;
 }
-.innerRoundBorder {
+.main .innerRoundBorder {
   position: relative;
   border-radius: 5% / 10%;
   padding: 10px;
@@ -94,7 +88,7 @@ a:hover {
   background-color: white;
   background-origin: content-box;
 }
-.innerRoundBorder::before {
+.main .innerRoundBorder::before {
   content: '';
   position: absolute;
   top: 0;
@@ -107,29 +101,33 @@ a:hover {
   z-index: -1;
   filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
 }
-.stripe-0 {
+.main .stripe-0 {
   background: repeating-linear-gradient(0deg, thistle, thistle 10px, #b180b1 0, #b180b1 20px);
 }
-.stripe-30 {
+.main .stripe-30 {
   background: repeating-linear-gradient(30deg, thistle, thistle 10px, #b180b1 0, #b180b1 20px);
 }
-.stripe-90 {
+.main .stripe-90 {
   background: repeating-linear-gradient(90deg, thistle, thistle 10px, #c59fc5 0, #c59fc5 30px);
 }
-.lattice-example {
+.main .lattice-example {
   background: thistle;
   background-image: repeating-linear-gradient(to bottom, white, white 1px, transparent 0, transparent 16px), repeating-linear-gradient(to right, white, white 1px, transparent 0, transparent 16px);
 }
-.dot {
+.main .dot {
   background-image: radial-gradient(thistle 30%, transparent 0), radial-gradient(thistle 30%, transparent 0);
   background-size: 30px 30px;
   background-position: 0 0 ,15px 15px;
 }
-.chess {
-  background-image: url(images/patterns.svg);
+.main .chess {
+  background-image: url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"\
+        width="100" height="100" viewBox="0 0 100 100" fill-opacity=".25">\
+        <rect x="50" width="50" height="50"></rect>\
+        <rect y="50" width="50" height="50"></rect>\
+    </svg>');
   background-size: 50px 50px;
 }
-.back {
+.main .back {
   height: 80px;
   width: 180px;
   background-image: repeating-linear-gradient(60deg, hsla(0, 0%, 100%, 0.6), hsla(0, 0%, 100%, 0.6) 15px, transparent 0, transparent 30px), repeating-linear-gradient(-30deg, hsla(0, 0%, 100%, 0.6), hsla(0, 0%, 100%, 0.6) 15px, transparent 0, transparent 30px);
@@ -139,23 +137,23 @@ a:hover {
   background-clip: content-box, border-box;
   background-origin: content-box, border-box;
 }
-.randomBack {
+.main .randomBack {
   background: thistle;
   background-image: linear-gradient(90deg, thistle 11px, transparent 0), linear-gradient(90deg, #9e609e 23px, transparent 0), linear-gradient(90deg, #5e3a5e 41px, transparent 0);
   background-size: 41px 100%,61px 100%,83px 100%;
 }
-.imageBorder {
+.main .imageBorder {
   border: 1em solid transparent;
-  background: linear-gradient(white, white) padding-box, url(images/stars.jpg) border-box 0 0 / cover;
+  background: linear-gradient(white, white) padding-box, url(https://img2018.cnblogs.com/common/1877019/201912/1877019-20191213213606545-25399406.jpg) border-box 0 0 / cover;
 }
-.imageBorder p {
+.main .imageBorder p {
   margin: 0 auto;
 }
-.letter-border {
+.main .letter-border {
   border: 1em solid transparent;
   background: linear-gradient(white, white) padding-box, repeating-linear-gradient(135deg, red 0, red 0.70710678em, transparent 0, transparent 1.41421356em, #58a 0, #58a 2.12132034em, transparent 0, transparent 2.82842712em) border-box;
 }
-.ants {
+.main .ants {
   border: 1px solid transparent;
   background: linear-gradient(white, white) padding-box, repeating-linear-gradient(-45deg, black 0, black 25%, white 0, white 50%) 0 / 0.6em 0.6em;
   animation: ants 12s linear infinite;
@@ -165,29 +163,29 @@ a:hover {
     background-position: 100%;
   }
 }
-.footer {
+.main .footer {
   border-top: 0.2em solid transparent;
   border-image: 100% 0 0 linear-gradient(90deg, thistle 4em, transparent 0);
   padding-top: 0.5em;
 }
-.ellipse {
+.main .ellipse {
   width: 200px;
   height: 100px;
   background-color: thistle;
   border-radius: 50% / 50%;
 }
-.half-ellipse {
+.main .half-ellipse {
   width: 50px;
   background-color: thistle;
   border-radius: 50% / 100% 100% 0 0;
 }
-.parallelogram {
+.main .parallelogram {
   position: relative;
   color: white;
   padding: 50px 0 0 0;
   font-size: 25px;
 }
-.parallelogram::before {
+.main .parallelogram::before {
   content: '';
   position: absolute;
   top: 0;
@@ -198,24 +196,25 @@ a:hover {
   background-color: thistle;
   transform: skew(-45deg);
 }
-.rotateDiv {
-  width: 32px;
-  height: 32px;
+.main .rotateDiv {
+  width: 115px;
+  height: 150px;
+  background-color: thistle;
   transform: rotate(45deg);
   overflow: hidden;
 }
-.rotateImg {
+.main .rotateImg {
   transform: rotate(-45deg);
   max-width: 100%;
 }
-.rotateImg2 {
+.main .rotateImg2 {
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
   transition: 1s clip-path;
 }
-.rotateImg2:hover {
+.main .rotateImg2:hover {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
-.next {
+.main .next {
   position: relative;
   font-size: 20px;
   border-top-left-radius: 10px;
@@ -227,7 +226,7 @@ a:hover {
   background-size: 100px 50px;
   background-repeat: no-repeat;
 }
-.next p {
+.main .next p {
   font-size: inherit;
   margin: 0;
   position: absolute;
@@ -235,14 +234,14 @@ a:hover {
   left: 30%;
   transform: translate(-50%, -50%);
 }
-.tab {
+.main .tab {
   width: 6em;
   height: 3em;
   position: relative;
   padding: 0.3em 1em 0em;
   color: white;
 }
-.tab::before {
+.main .tab::before {
   content: '';
   position: absolute;
   top: 0;
@@ -258,7 +257,7 @@ a:hover {
   box-shadow: 0 0.15em white inset;
   transform-origin: bottom;
 }
-.tab p {
+.main .tab p {
   font-size: inherit;
   margin: 0;
   position: absolute;
@@ -266,51 +265,51 @@ a:hover {
   left: 45%;
   transform: translate(-50%, -50%);
 }
-img {
+.main img {
   width: 100px;
   padding: 1% 1%;
   transition: 0.5s filter;
 }
-.image {
+.main .image {
   width: 100%;
   height: auto;
   display: inline-block;
 }
-.image img {
+.main .image img {
   width: 100px;
   padding: 1% 1%;
   transition: 0.5s filter;
 }
-.image #img1 {
+.main .image #img1 {
   filter: sepia(1);
 }
-.image #img1:hover {
+.main .image #img1:hover {
   filter: none;
 }
-.image #img2 {
+.main .image #img2 {
   filter: saturate(4);
 }
-.image #img2:hover {
+.main .image #img2:hover {
   filter: none;
 }
-.image #img3 {
+.main .image #img3 {
   filter: hue-rotate(180deg);
 }
-.image #img3:hover {
+.main .image #img3:hover {
   filter: none;
 }
-.image #img4 {
+.main .image #img4 {
   filter: sepia(1) saturate(4) hue-rotate(180deg);
 }
-.image #img4:hover {
+.main .image #img4:hover {
   filter: none;
 }
-.splitLine {
+.main .splitLine {
   position: relative;
   height: 5em;
   display: block;
 }
-.splitLine::before {
+.main .splitLine::before {
   content: '';
   position: absolute;
   top: 0;
@@ -320,7 +319,7 @@ img {
   background-color: thistle;
   z-index: -1;
 }
-.pie {
+.main .pie {
   width: 100px;
   height: 100px;
   border-radius: 50px / 50px;
@@ -328,7 +327,7 @@ img {
   background-image: linear-gradient(to right, transparent 50%, thistle 0);
   overflow: hidden;
 }
-.pie::before {
+.main .pie::before {
   content: '';
   display: block;
   margin-left: 50%;
@@ -377,18 +376,19 @@ img {
     background: grey;
   }
 }
-.bottomShadow {
+.main .bottomShadow {
   background-color: thistle;
   box-shadow: 0 10px 5px -5px grey;
 }
-.bottomShadow2 {
+.main .bottomShadow2 {
   background-color: thistle;
   box-shadow: 10px 0px 5px -5px grey, -10px 0px 5px -5px grey;
 }
-.nextShadow {
+.main .nextShadow {
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6));
+  height: auto;
 }
-.nextShadow .theNext {
+.main .nextShadow .theNext {
   position: relative;
   font-size: 20px;
   border-top-left-radius: 10px;
@@ -400,7 +400,7 @@ img {
   background-size: 100px 50px;
   background-repeat: no-repeat;
 }
-.nextShadow .theNext p {
+.main .nextShadow .theNext p {
   font-size: inherit;
   margin: 0;
   position: absolute;
@@ -408,16 +408,16 @@ img {
   left: 30%;
   transform: translate(-50%, -50%);
 }
-.nextShadow .dottedBorder {
+.main .nextShadow .dottedBorder {
   border: 10px dotted thistle;
 }
-.img {
+.main .img {
   width: 300px;
   height: 300px;
-  background: url(images/bg.jpg) 0 / 300px 300px scroll;
+  background: url(https://img2018.cnblogs.com/common/1877019/201912/1877019-20191213211821888-1456665465.jpg) 0 / 300px 300px scroll;
   position: relative;
 }
-.img .text {
+.main .img .text {
   position: absolute;
   left: 30px;
   top: 60px;
@@ -427,7 +427,7 @@ img {
   border-radius: 30px / 30px;
   overflow: hidden;
 }
-.img .text::before {
+.main .img .text::before {
   content: '';
   position: absolute;
   top: 0;
@@ -436,23 +436,23 @@ img {
   bottom: 0;
   z-index: -1;
   filter: blur(5px);
-  background: url(images/bg.jpg) left -30px top -60px / 300px 300px scroll;
+  background: url(https://img2018.cnblogs.com/common/1877019/201912/1877019-20191213211821888-1456665465.jpg) left -30px top -60px / 300px 300px scroll;
 }
-.img p {
+.main .img p {
   padding: 10px 5px;
 }
-p {
+.main p {
   text-indent: 1em;
   hyphens: auto;
 }
-.angle {
+.main .angle {
   width: 150px;
   height: 150px;
   position: relative;
   background: thistle;
   background: linear-gradient(200deg, transparent 20px, thistle 0);
 }
-.angle::before {
+.main .angle::before {
   content: '';
   position: absolute;
   width: 21.28355545px;
@@ -465,14 +465,14 @@ p {
   border-bottom-left-radius: inherit;
   box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.4);
 }
-.angle2 {
+.main .angle2 {
   width: 150px;
   height: 150px;
   position: relative;
   background: thistle;
   background: linear-gradient(225deg, transparent 20px, thistle 0);
 }
-.angle2::before {
+.main .angle2::before {
   content: '';
   position: absolute;
   width: 28.28427125px;
@@ -485,14 +485,14 @@ p {
   border-bottom-left-radius: inherit;
   box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.4);
 }
-.angle3 {
+.main .angle3 {
   width: 150px;
   height: 150px;
   position: relative;
   background: thistle;
   background: linear-gradient(240deg, transparent 10px, thistle 0);
 }
-.angle3::before {
+.main .angle3::before {
   content: '';
   position: absolute;
   width: 20px;
@@ -505,7 +505,7 @@ p {
   border-bottom-left-radius: inherit;
   box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.4);
 }
-.lineColor {
+.main .lineColor {
   width: 200px;
   height: auto;
   font-size: 20px;
@@ -514,27 +514,27 @@ p {
   background-image: linear-gradient(to bottom, #cccccc 50%, transparent 0);
   background-size: auto 3em;
 }
-.lineColor span {
+.main .lineColor span {
   line-height: inherit;
   word-break: normal;
   word-wrap: break-word;
 }
-.underLine {
+.main .underLine {
   text-decoration: underline red wavy;
 }
-.fontShadow {
+.main .fontShadow {
   font-size: 30px;
   text-shadow: 0 1px 1px thistle;
 }
-.fontStroke {
+.main .fontStroke {
   color: white;
   font-size: 30px;
   text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
 }
-.moveImg {
+.main .moveImg {
   width: 150px;
   height: 150px;
-  background-image: url(images/bg.jpg);
+  background-image: url(https://img2018.cnblogs.com/common/1877019/201912/1877019-20191213211821888-1456665465.jpg);
   background-size: 200% 100%;
   animation: moveImg 5s linear infinite alternate ;
   animation-play-state: paused;
@@ -544,10 +544,10 @@ p {
     background-position: 100% 0;
   }
 }
-.moveImg:hover {
+.main .moveImg:hover {
   animation-play-state: running;
 }
-footer {
+.main footer {
   height: 100px;
   padding: 0em;
   padding: 0em calc(50% - 400px);
